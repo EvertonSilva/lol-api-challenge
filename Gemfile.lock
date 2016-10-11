@@ -3,6 +3,7 @@ GEM
   specs:
     daemons (1.2.4)
     diff-lcs (1.2.5)
+    dotenv (2.1.1)
     eventmachine (1.2.0.1)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -36,6 +37,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   rack-test
   rspec
   sinatra
@@ -45,4 +47,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.3

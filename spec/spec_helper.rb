@@ -1,7 +1,10 @@
 require "rack/test"
 require "rspec"
+require "dotenv"
 require "sinatra"
 require_relative "../lib/app"
+
+Dotenv.load
 
 ENV["RACK_ENV"] = "test"
 

@@ -1,8 +1,4 @@
-$LOAD_PATH.push File.expand_path("../lib", __FILE__)
-
-require 'sinatra'
-require 'app'
-
-set :bind, '0.0.0.0'
+require_relative './environment'
+require_relative './lib/app'
 
 run Sinatra::Application

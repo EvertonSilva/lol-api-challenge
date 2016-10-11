@@ -5,7 +5,6 @@ class DataLoader
 
 	ENDPOINT = 'https://global.api.pvp.net'
 	BASE_PATH = '/api/lol/static-data/'
-	API_KEY = 'RGAPI-82aa79a2-c325-4316-8770-292a09419a93'
 
 	def initialize(endpoint = ENDPOINT)
 		uri = URI.parse(endpoint)
@@ -29,7 +28,8 @@ class DataLoader
 	private
 	
 	def encode_url
-		encoded = URI.encode_www_form('api_key' => API_KEY)
+		api_key = ENV['LOL_API_KEY']
+		encoded = URI.encode_www_form('api_key' => api_key)
 		[@path, encoded].join("?")
 	end
 	
