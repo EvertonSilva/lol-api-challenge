@@ -1,25 +1,37 @@
 require 'net/http'
-require 'uri'
 require 'json'
 
 class DataLoader 
-	
-	@region = 'br'
-	@api_key = 'RGAPI-82aa79a2-c325-4316-8770-292a09419a93'
 
-	def self.fetch_data(object = 'champion')
-		base_url	= 'https://global.api.pvp.net'
-		path			= "/api/lol/static-data/#{@region}/v1.2/#{object}"
-		query			= URI.encode_www_form("api_key" => @api_key)
-		address		= URI "#{base_url}#{path}?#{query}"
-		req				= Net::HTTP::Get.new address.request_uri
+	ENDPOINT = 'https://global.api.pvp.net'
+	BASE_PATH = '/api/lol/static-data/'
+	API_KEY = 'RGAPI-82aa79a2-c325-4316-8770-292a09419a93'
 
-		http							= Net::HTTP.new address.host, address.port
-		http.use_ssl			= true
-		http.verify_mode	= OpenSSL::SSL::VERIFY_PEER
-		http.start
-		resp = http.request req
-
+	def initialize(endpoint = ENDPOINT)
+		uri = URI.parse(endpoint)
+		@http = Net::HTTP.new(uri.host, uri.port)
 	end
+
+	def set_path(region = 'br', object = 'champion')
+		path = "#{BASE_PATH}#{region}/v1.2/#{object}"
+		@path = URI.parse(path)
+	end
+
+	def make_request
+		full_path = encode_url
+		req = Net::HTTP::Get.new(full_path)
+
+		@http.use_ssl = true
+		@http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+		@http.request(req)
+	end
+
+	private
+	
+	def encode_url
+		encoded = URI.encode_www_form('api_key' => API_KEY)
+		[@path, encoded].join("?")
+	end
+	
 
 end
