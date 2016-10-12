@@ -10,4 +10,11 @@ describe DataLoader do
 			it { expect(loader.make_request.code).to eq("200") }
 		end
 	end
+
+	context "with query params" do
+
+		describe "#make_request" do
+			it { expect(loader.make_request("locale"=>"pt_Br").code).to eq("200") }
+		end
+	end
 end
