@@ -1,5 +1,5 @@
 class Champion
-	attr_read :id, :title, :key, :name
+	attr_reader :id, :title, :key, :name
 
 	def initialize(champ_default = {})
 		@id ||= champ_default['id']
