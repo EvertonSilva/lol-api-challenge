@@ -5,6 +5,8 @@ GEM
     diff-lcs (1.2.5)
     dotenv (2.1.1)
     eventmachine (1.2.0.1)
+    haml (4.0.7)
+      tilt
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -38,6 +40,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  haml
   rack-test
   rspec
   sinatra

@@ -1,4 +1,6 @@
+require 'haml'
 
 get '/' do
-	"Hello, world!"
+	@name = "Home"
+	haml :index
 end
