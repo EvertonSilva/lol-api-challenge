@@ -1,7 +1,6 @@
 require 'net/http'
-require 'json'
 
-class DataLoader 
+class DataLoader
 
 	ENDPOINT = 'https://global.api.pvp.net'
 	BASE_PATH = '/api/lol/static-data/'
@@ -27,11 +26,11 @@ class DataLoader
 	end
 
 	private
-	
+
 	def encode_url(params)
 		encoded = URI.encode_www_form(params)
 		[@path, encoded].join("?")
 	end
-	
+
 
 end
