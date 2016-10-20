@@ -10,7 +10,7 @@ class DataHandler
 	end
 
 	def champions
-		@champ_data = get_data({"champData" => "recommended"})
+		@champ_data = get_data({"champData" => "recommended,lore"})
 		build_champs
 		@champions
 	end
@@ -30,21 +30,12 @@ class DataHandler
 
 	def build_champs
 
-		traversing_data = Proc.new do |data, key|
-  		data.map { |hsh| hsh.fetch(key) }.flatten
-		end
-
 		@champ_data.each_pair do |k, v|
-
-			# traverse json structure for recommended items
-			# and generate an array of items id's
-			blocks = traversing_data.call(v["recommended"], "blocks")
-			items = traversing_data.call(blocks, "items")
-			ids = traversing_data.call(items, "id")
-
-			c = Champion.new(v["id"], v["title"], v["name"], v["key"], ids.uniq)
+			c = Champion.new(v["id"], v["title"], v["name"], v["key"], v["lore"], v["recommended"])
 			@champions << c
 		end
+
+		@champions.sort! { |a, b| a.name.downcase <=> b.name.downcase }
 	end
 
 end

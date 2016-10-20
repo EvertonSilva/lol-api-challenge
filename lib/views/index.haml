@@ -1,11 +1,19 @@
 %h1 Champs List
 
 - @champs.each do |champion|
-  %div{:class => "champion"}
-    %span= champion.id
+  %div{:class => "champion", :id => "champion-#{champion.id}"}
     %h2= champion.name
     %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/#{champion.key}.png")
     %p= champion.title
-    - champion.items_id.each do |id|
-      %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/item/#{id}.png")
-
+    %p{:class => "lore"}
+      = champion.lore
+    %div{:class => "items"}
+      - champion.recommended_items.each do |r|
+        %p= "Mapa: #{r.game_map}"
+        %div{:class => "items-by-map"}
+          - r.block.each_pair do |k, v|
+            %div{:class => "items-group"}
+              %p= k
+              %div
+                - v.each do |id|
+                  %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/item/#{id}.png")
