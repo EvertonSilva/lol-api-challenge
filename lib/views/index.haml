@@ -1,22 +1,11 @@
-:css
-  .app {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .champion {
-    color: #333;
-    display: inline-block;
-    width: 200px;
-    margin: 20px 10px;
-  }
 %h1 Champs List
 
-- @champs.sort.each do |key, val|
+- @champs.each do |champion|
   %div{:class => "champion"}
-    %span= val['id']
-    %h2= val['name']
-    %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/#{val['key']}.png")
-    %p= val['title']
-    %p= val['recommended'][0]['blocks'][0]
+    %span= champion.id
+    %h2= champion.name
+    %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/#{champion.key}.png")
+    %p= champion.title
+    - champion.items_id.each do |id|
+      %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/item/#{id}.png")
 

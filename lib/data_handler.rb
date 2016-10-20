@@ -9,24 +9,23 @@ class DataHandler
 		@champions = []
 	end
 
-	def self.champions
-		@champ_data = get_data("champsData"=>"recommended")
+	def champions
+		@champ_data = get_data({"champData" => "recommended"})
 		build_champs
+		@champions
 	end
 
-	def self.items
+	def items
 		@loader.set_path('br', 'item')
 		@items = get_data
 	end
 
 	private
 
-	def get_data(champ_data = nil)
-		params = {"locale"=>"pt_BR"}
-		paramas.merge champ_data if defined? champ_data
+	def get_data(params = {})
 		resp = @loader.make_request(params)
-		data = JSON.parse(resp.body)
-		data['data'];
+		data_hsh = JSON.parse(resp.body)
+		data_hsh['data']
 	end
 
 	def build_champs
@@ -35,15 +34,15 @@ class DataHandler
   		data.map { |hsh| hsh.fetch(key) }.flatten
 		end
 
-		@chap_data.each_pair do |k, v|
+		@champ_data.each_pair do |k, v|
 
 			# traverse json structure for recommended items
 			# and generate an array of items id's
-			blocks = traversing_data.call(v[:recommended], :blocks)
-			items = traversing_data.call(blocks, :items)
-			ids = traversing_data.call(items, :id)
+			blocks = traversing_data.call(v["recommended"], "blocks")
+			items = traversing_data.call(blocks, "items")
+			ids = traversing_data.call(items, "id")
 
-			c = Champion.new(v[:id], v[:title], v[:name], v[:key], ids)
+			c = Champion.new(v["id"], v["title"], v["name"], v["key"], ids.uniq)
 			@champions << c
 		end
 	end

@@ -16,8 +16,13 @@ class DataLoader
 	end
 
 	def make_request(params = {})
-		params['api_key'] = ENV['LOL_API_KEY']
+
+		set_path unless defined? @path
+
+		params[:locale] = "pt_BR"
+		params[:api_key] = ENV['LOL_API_KEY']
 		@full_path = encode_url(params)
+
 		req = Net::HTTP::Get.new(@full_path)
 
 		@http.use_ssl = true
@@ -31,6 +36,5 @@ class DataLoader
 		encoded = URI.encode_www_form(params)
 		[@path, encoded].join("?")
 	end
-
 
 end

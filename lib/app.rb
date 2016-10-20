@@ -1,15 +1,10 @@
-require 'json'
-require_relative './data_loader'
-require_relative './champion'
+require_relative 'data_handler'
 
 get '/' do
-	loader = DataLoader.new
-	loader.set_path
+	dh = DataHandler.new
 
-	resp = loader.make_request("locale"=>"pt_BR", "champData"=>"image,recommended")
-	data_hash = JSON.parse(resp.body) if resp.code == "200"
-
-	@champs = data_hash['data']
+  @champs = dh.champions
+  @items = dh.items
 
 	haml :index
 end
