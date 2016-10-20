@@ -25,6 +25,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    sass (3.4.22)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -39,10 +40,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (>= 1.8.4)
   dotenv
   haml
   rack-test
   rspec
+  sass
   sinatra
   thin
 
