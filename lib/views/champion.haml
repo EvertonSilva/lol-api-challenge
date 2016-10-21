@@ -5,10 +5,10 @@
     = @champion.title
   %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/#{@champion.key}.png")
   %section{:class => "champion-items"}
-    %h3 Recommended Items
-    %div
+    %h3 Itens Recomendados
+    %div{:class => "items-wrap"}
       - rl = @champion.recommended_list(3)
-      %h4= rl.game_map
+      %h4= "Mapa: #{rl.game_map}"
       - rl.group_items.each do |k, v|
         %div{:class => "item-group"}
           %p

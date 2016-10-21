@@ -415,6 +415,14 @@ template {
 .champion-lore {
   width: 65%; }
 
+.champion-items {
+  margin-top: 2em; }
+  .champion-items .item-group {
+    display: inline-block;
+    padding: 0 0.4em; }
+  .champion-items .item-imgs img {
+    width: 54.4px; }
+
 body {
   color: #333; }
 
@@ -459,5 +467,12 @@ h2 {
     line-height: 1.5;
     margin: 1em 0;
     padding: 0.5em 0.3em; }
+
+.champion-items .items-wrap {
+  padding-left: 1.5em; }
+.champion-items h3 {
+  background-color: #ccc;
+  padding: 0.7em 0.5em;
+  text-align: right; }
 
 /*# sourceMappingURL=application.css.map */

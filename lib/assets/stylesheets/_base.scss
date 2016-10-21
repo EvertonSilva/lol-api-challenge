@@ -33,6 +33,7 @@
 
 // Home
   #home {
+
     .champion {
       width: 180px;
       display: inline-block;
@@ -50,10 +51,33 @@
     color: $medium_gray;
     height: 400px;
     padding-left: 1em;
+
     article {
       font-style: $text_font_size;
       line-height: $text_line_height;
       margin: 1em 0;
       padding: 0.5em 0.3em;
+    }
+  }
+
+  .champion-items {
+
+    .items-wrap {
+      padding-left: 1.5em;
+    }
+
+    h3 {
+      background-color: #ccc;
+      padding: 0.7em 0.5em;
+      text-align: right;
+      // &:before,
+      // &:after {
+      //   background-color: #cdcdcd;
+      //   content: "";
+      //   display: block;
+      //   height: 1px;
+      //   margin: 1.2% 0 1.2% 43%;
+      //   width: 10%;
+      // }
     }
   }

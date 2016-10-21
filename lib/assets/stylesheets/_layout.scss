@@ -13,3 +13,16 @@
   @extend .col;
   width: 65%;
 }
+
+ .champion-items {
+    margin-top: 2em;
+
+    .item-group {
+      display: inline-block;
+      padding: 0 0.4em;
+    }
+
+    .item-imgs {
+      img { width: 64px*0.85 }
+    }
+  }
