@@ -1,6 +1,6 @@
+%h1{:class => "page-title"}
+  League of Legends - Champions
 %div{:id => "home"}
-  %h1{:class => "page-title"}
-    League of Legends - Champions
 
   - @champs.each do |champion|
     %div{:class => "champion", :id => "champion-#{champion.id}"}

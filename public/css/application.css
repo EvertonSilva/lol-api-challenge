@@ -438,8 +438,8 @@ h2 {
   font-size: 1.5em; }
 
 .app {
-  width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 90%; }
 
 .footer {
   background-color: #262626;
@@ -449,10 +449,18 @@ h2 {
   padding: 0.5em 0;
   text-align: center; }
 
-#home .champion {
-  width: 180px;
-  display: inline-block;
-  padding: 0.2em 0.4em; }
+.page-title {
+  padding: 0.5em; }
+
+#home {
+  padding: 0 1.2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  #home .champion {
+    width: 160px; }
+  #home .champion-name {
+    font-size: 1.275em; }
 
 .champion-title {
   text-transform: capitalize; }

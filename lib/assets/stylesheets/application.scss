@@ -6,3 +6,17 @@
 @import 'variables';
 @import 'layout';
 @import 'base';
+
+// Apply a lire line before and after
+// an block element
+@mixin ornament($bg_color, $height) {
+  &:before,
+  &:after {
+    background-color: $bg_color;
+    content: "";
+    display: block;
+    height: $height;
+    margin: 1.2% 0 1.2% 43%;
+    width: 10%;
+  }
+}

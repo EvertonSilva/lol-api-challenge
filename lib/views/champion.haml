@@ -1,5 +1,5 @@
 %section{:class => "champion-info"}
-  %h1{:class => "page-title"}
+  %h1{:class => "champion-name"}
     = @champion.name
   %h2{:class => "champion-title"}
     = @champion.title
@@ -7,7 +7,7 @@
   %section{:class => "champion-items"}
     %h3 Itens Recomendados
     %div{:class => "items-wrap"}
-      - rl = @champion.recommended_list(3)
+      - rl = @champion.recommended_list(0)
       %h4= "Mapa: #{rl.game_map}"
       - rl.group_items.each do |k, v|
         %div{:class => "item-group"}
