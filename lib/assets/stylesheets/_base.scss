@@ -1,0 +1,59 @@
+// General
+  body {
+    color: $dark_grey;
+  }
+
+  a {
+    color: $link_default;
+    &:hover {
+      color: $link_hover;
+    }
+  }
+  h1 {
+    font-size: $heading_h1_font_size;
+  }
+
+  h2 {
+    font-size: $heading_h2_font_size;
+  }
+
+  .app {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .footer {
+    background-color: darken($medium_gray, 25%);
+    color: lighten($medium_gray, 25);
+    font-size: small;
+    margin-top: 1em;
+    padding: 0.5em 0;
+    text-align: center;
+  }
+
+// Home
+  #home {
+    .champion {
+      width: 180px;
+      display: inline-block;
+      padding: 0.2em 0.4em;
+    }
+  }
+
+// Champion page
+  .champion-title {
+    text-transform: capitalize;
+  }
+
+  .champion-lore {
+    border-left: 1px solid #eee;
+    color: $medium_gray;
+    height: 400px;
+    padding-left: 1em;
+    article {
+      font-style: $text_font_size;
+      line-height: $text_line_height;
+      margin: 1em 0;
+      padding: 0.5em 0.3em;
+    }
+  }

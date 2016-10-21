@@ -5,6 +5,16 @@
     %meta{ :charset => "UTF_8" }
     %meta{ :http_equiv => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1" }
+    %link{ :href => "/css/application.css", :type => "text/css", :rel => "stylesheet", :media => "screen" }
   %body
     %div{:class => "app"}
       =yield
+      %footer{:class => "footer"}
+        %p PegCar Challenge - Just another Toy App for a code challenge =)
+        %p
+          Reach the author
+          %a{:href => "//twitter.com/_evertonsilva"}@_evertonsilva
+          on twitter
+        %p
+          ©
+          =Time.now.strftime("%d/%m/%Y")

@@ -11,11 +11,11 @@ class Champion
     @lore = lore
     @recommended = recommended
     @recommended_items = []
+    traverse_list(@recommended.clone)
 	end
 
-  def recommended_items
-    traverse_list(@recommended.clone)
-    @recommended_items
+  def recommended_list(index)
+    @recommended_items[index]
   end
 
   private

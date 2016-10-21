@@ -1,0 +1,15 @@
+// Champion page
+.col {
+  display: table-cell;
+  position: relative;
+}
+
+.champion-info {
+  @extend .col;
+  width: 35%;
+}
+
+.champion-lore {
+  @extend .col;
+  width: 65%;
+}

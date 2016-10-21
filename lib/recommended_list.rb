@@ -1,6 +1,6 @@
 
 class RecommendedList
-  attr_reader :block
+  attr_reader :group_items
 
   GAME_MAPS = {
     "CS" => "Crystal Scar",
@@ -9,9 +9,9 @@ class RecommendedList
     "TT" => "Twisted Treeline"
   }
 
-  def initialize(game_map, block)
+  def initialize(game_map, group_items)
     @game_map = game_map
-    @block = block
+    @group_items = group_items
   end
 
   def game_map
