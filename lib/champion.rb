@@ -43,7 +43,10 @@ class Champion
     head = list_blk.shift
     tail = list_blk
 
-    key = head["type"]
+    key = head["type"].to_s
+    key.gsub!(/_/, ' ')
+    key.gsub!(/jungle/, ' jungle')
+    key.capitalize!
     hsh[key] = head["items"].map { |item| item.fetch("id") }
 
     traverse_blocks(tail, hsh)

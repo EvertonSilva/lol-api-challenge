@@ -1,4 +1,4 @@
-%section{:class => "champion-info"}
+%section{:class => "champion-info", :id => "info", "data-cid" => "#{@champion.id}"}
   %h1{:class => "champion-name"}
     = @champion.name
   %h2{:class => "champion-title"}
@@ -6,18 +6,15 @@
   %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/champion/#{@champion.key}.png")
   %section{:class => "champion-items"}
     %h3 Itens Recomendados
-    %div{:class => "items-wrap"}
-      - rl = @champion.recommended_list(0)
-      %h4= "Mapa: #{rl.game_map}"
-      - rl.group_items.each do |k, v|
-        %div{:class => "item-group"}
-          %p
-            - output = k.gsub(/_/, ' ')
-            - output.gsub!('jungle', ' jungle')
-            = output.capitalize
-          %div{:class => "item-imgs"}
-            - v.each do |id|
-              %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/item/#{id}.png")
+    %div{:class => "items-wrap", :id => "items-wrap"}
+      %h4 Mapa: {{ gameMap }}
+      %div{:class => "item-group", "v-for" => "group in groups"}
+        %p {{ group.name }}
+        %div{:class => "item-imgs"}
+          %item-img{"v-for" => "item in group.items", ":item" => "item"}
+
+      %div
+        %button{"v-on:click" => "changeItems", :title => "Ver mais itens"} +
 %section{:class => "champion-lore"}
   %h3 Bio
   %article= @champion.lore
