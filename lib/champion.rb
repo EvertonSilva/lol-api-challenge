@@ -15,7 +15,12 @@ class Champion
 	end
 
   def recommended_list(index)
-    @recommended_items[index]
+    return @recommended_items[index] if check_recommended_size(index)
+    raise "Index out of range. Expetecd a value between 0 and #{recommended_size - 1}"
+  end
+
+  def recommended_size
+    @recommended_items.size
   end
 
   private
@@ -43,4 +48,9 @@ class Champion
 
     traverse_blocks(tail, hsh)
   end
+
+  def check_recommended_size(index)
+    index < @recommended_items.size
+  end
+
 end # class
