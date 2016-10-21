@@ -7,11 +7,14 @@
   %section{:class => "champion-items"}
     %h3 Recommended Items
     %div
-      - rl = @champion.recommended_list(0)
+      - rl = @champion.recommended_list(3)
       %h4= rl.game_map
       - rl.group_items.each do |k, v|
         %div{:class => "item-group"}
-          %p= k.capitalize.gsub(/_/, ' ')
+          %p
+            - output = k.gsub(/_/, ' ')
+            - output.gsub!('jungle', ' jungle')
+            = output.capitalize
           %div{:class => "item-imgs"}
             - v.each do |id|
               %img(src="http://ddragon.leagueoflegends.com/cdn/6.20.1/img/item/#{id}.png")
