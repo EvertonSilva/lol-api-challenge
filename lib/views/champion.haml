@@ -13,8 +13,9 @@
         %div{:class => "item-imgs"}
           %item-img{"v-for" => "item in group.items", ":item" => "item"}
 
-      %div
+      %div{:class => "controls"}
         %button{"v-on:click" => "changeItems", :title => "Ver mais itens"} +
+
 %section{:class => "champion-lore"}
   %h3 Bio
   %article= @champion.lore

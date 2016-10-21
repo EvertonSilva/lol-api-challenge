@@ -417,10 +417,15 @@ template {
 
 .champion-items {
   margin-top: 2em; }
+  .champion-items .items-wrap {
+    padding-left: 1.5em; }
+    .champion-items .items-wrap button {
+      margin-top: 0.6em; }
   .champion-items .item-group {
     display: inline-block;
-    padding: 0 0.4em; }
+    margin: 0 0.3em; }
   .champion-items .item-imgs img {
+    margin: 0 0.1em;
     width: 54.4px; }
 
 body {
@@ -476,8 +481,17 @@ h2 {
     margin: 1em 0;
     padding: 0.5em 0.3em; }
 
-.champion-items .items-wrap {
-  padding-left: 1.5em; }
+.champion-items .items-wrap .controls {
+  text-align: right; }
+  .champion-items .items-wrap .controls button {
+    background-color: #19d0ff;
+    border: none;
+    color: #005065;
+    cursor: pointer;
+    font-weight: bold;
+    height: 2em;
+    margin-right: 1em;
+    width: 2em; }
 .champion-items h3 {
   background-color: #ccc;
   padding: 0.7em 0.5em;

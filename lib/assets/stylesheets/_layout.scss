@@ -17,12 +17,23 @@
  .champion-items {
     margin-top: 2em;
 
+    .items-wrap {
+      padding-left: 1.5em;
+
+      button {
+        margin-top: 0.6em;
+      }
+    }
+
     .item-group {
       display: inline-block;
-      padding: 0 0.4em;
+      margin: 0 0.3em;
     }
 
     .item-imgs {
-      img { width: 64px*0.85 }
+      img {
+        margin: 0 0.1em;
+        width: 64px*0.85
+      }
     }
   }
